@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background: #faf8f5;
+}
+
+/* Hero Section with Background Image */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.save-date-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+.couple-names {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    line-height: 1.2;
+}
+
+.wedding-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #f4d03f;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+.venue-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator::after {
+    content: '↓';
+    font-size: 2rem;
+    color: white;
+    opacity: 0.8;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Flowing Section Dividers */
+.wave-divider {
+    width: 100%;
+    height: 100px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%23faf8f5'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+    background-size: cover;
+    margin-top: -1px;
+}
+
+/* Main Content Sections */
+.content-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    color: #8b4513;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #d4af37, #f4d03f);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 60px;
+    font-style: italic;
+}
+
+/* Event Details with Images */
+.events-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.event-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.event-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.ceremony-image {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=2070&auto=format&fit=crop');
+}
+
+.reception-image {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
+}
+
+.event-info {
+    padding: 40px;
+    text-align: center;
+}
+
+.event-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #8b4513;
+    margin-bottom: 15px;
+}
+
+.event-time {
+    font-size: 1.5rem;
+    color: #d4af37;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.event-details {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+        /* Venue Section with Background */
+        .venue-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/alpha-horizon1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+.venue-content {
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+}
+
+.venue-section .section-title {
+    color: white;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+}
+
+.venue-section .section-title::after {
+    background: linear-gradient(to right, #f4d03f, #d4af37);
+}
+
+.venue-description {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.venue-address {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 30px;
+}
+
+.venue-map {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.venue-map iframe {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.venue-map iframe:hover {
+    transform: scale(1.02);
+}
+
+/* RSVP Section */
+.rsvp-section {
+    background: linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
+    padding: 100px 20px;
+}
+
+.rsvp-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.rsvp-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.rsvp-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #8b4513;
+    margin-bottom: 20px;
+}
+
+.rsvp-intro p {
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+}
+
+.rsvp-form {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.google-form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.google-form-container iframe {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #8b4513;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e8e8e8;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.rsvp-btn {
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    color: white;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.rsvp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+}
+
+.success-message {
+    display: none;
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    color: #155724;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    border: 1px solid #c3e6cb;
+}
+
+/* Footer */
+.footer {
+    background: #8b4513;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f4d03f;
+}
+
+.footer p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+.hearts {
+    color: #f4d03f;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
+/* Floating Elements */
+.floating-petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.petal {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #f4d03f;
+    border-radius: 50% 0 50% 0;
+    animation: fall 8s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .couple-names {
+        font-size: 3.5rem;
+    }
+    
+    .wedding-date {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .venue-section .section-title {
+        font-size: 2.8rem;
+    }
+    
+    .venue-section {
+        padding: 60px 20px;
+        min-height: 400px;
+    }
+    
+    .venue-description {
+        font-size: 1.1rem;
+    }
+    
+    .venue-address {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+    
+    .venue-map iframe {
+        height: 250px;
+    }
+    
+    .events-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .rsvp-form {
+        padding: 30px;
+    }
+    
+    .google-form-container {
+        padding: 20px;
+    }
+    
+    .google-form-container iframe {
+        height: 600px;
+    }
+    
+    .hero {
+        height: 100vh;
+    }
+    
+    .content-section {
+        padding: 60px 20px;
+    }
+} 
